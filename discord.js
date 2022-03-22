@@ -1,28 +1,14 @@
 const Discord = require('discord.js');
-require('events').EventEmitter.defaultMaxListeners = 25;
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 const DisTube = require('distube');
 const distube = new DisTube(client, { searchSongs: false, emitNewSongOnly: true });
-const { mongoPath } = require('./config.json');
 const fs = require('fs');
-
-
-const config = require('./config.json');
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 const mySecret = process.env['TOKEN']
-const giphySecret = process.env['GIPHYTOKEN']
 const keepAlive = require("./server");
-const welcome = require("./welcome");
-const mongo = require("./mongo");
-const command = require("./command");
-
-const path = require('path');
-const cron = require('cron');
-
 const prefix = ".";
-let servers = {};
 
 for(const file of commandFiles) {
     const command = require(`./commands/${file}`);
@@ -30,7 +16,7 @@ for(const file of commandFiles) {
     client.commands.set(command.commands, command);
 }
 
-//command handler
+// command handler
 client.on("message", message => {
   if(!message.content.startsWith(prefix) || message.author.id === "902104659437707314") return;
 
@@ -46,8 +32,6 @@ client.on("message", message => {
     message.reply(`There was an error: ` + error);
   }
 })
-
-
 
 client.on('ready', () => {
     console.log("Logged in as " + client.user.tag + "!")
