@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+client.setMaxListeners(25);
 client.commands = new Discord.Collection();
 const DisTube = require('distube');
 const distube = new DisTube(client, { searchSongs: false, emitNewSongOnly: true });

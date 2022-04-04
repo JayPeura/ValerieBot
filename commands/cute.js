@@ -13,9 +13,9 @@ module.exports = {
  * @return {String} - The bar
  */
 
-        var value = Math.floor(Math.random() * 101)
-        var maxValue = "100";
-        var size = "10";
+        let value = Math.floor(Math.random() * 101)
+        let maxValue = "100";
+        let size = "10";
         
 
         global.progressBar = (value, maxValue, size) => {
@@ -32,7 +32,7 @@ module.exports = {
 
     }
 
-    var progressbar = progressBar(value, maxValue, size);
+    let progressbar = progressBar(value, maxValue, size);
     const embed = new Discord.MessageEmbed()
     .setTitle("Cuteness Meter")
     .setDescription(progressbar)
