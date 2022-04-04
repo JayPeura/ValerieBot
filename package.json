@@ -97,7 +97,7 @@
   "scripts": {
     "test": "xo && ava && tsd",
     "serve": "nodemon server.js",
-    "start": "nodemon discord.js"
+    "start": "nodemon index.js"
   },
   "version": "6.5.0",
   "main": "command.js"
