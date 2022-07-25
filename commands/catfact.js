@@ -119,13 +119,7 @@ module.exports = {
     //     test = client.channels.cache.get('778746390703636510');
     //     test.send(catfacts[Math.floor(Math.random() * catfacts.length)]);
     // })
-    // let scheduledMessage1 = new cron.CronJob('00 00 22 * * *', () => {
-    //     test = client.channels.cache.get('388085840791994372');
-    //     test.send("It's bed time. Good night everyone!");
-    // })
-
     // scheduledMessage.start()
-    // scheduledMessage1.start()
     // setInterval(() => {
 
     //     test = client.channels.cache.get('778746390703636510');

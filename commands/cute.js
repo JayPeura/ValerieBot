@@ -3,15 +3,7 @@ const Discord = require('discord.js');
 module.exports = {
 	commands: 'cute',
 	description: 'Tells you how cute you are.',
-  execute(message, arguments, text) {
-
-/**
- * Create a text progress bar
- * @param {Number} value - The value to fill the bar
- * @param {Number} maxValue - The max value of the bar
- * @param {Number} size - The bar size (in letters)
- * @return {String} - The bar
- */
+  execute(message) {
 
         let value = Math.floor(Math.random() * 101)
         let maxValue = "100";

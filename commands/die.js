@@ -1,11 +1,11 @@
 module.exports = {
 	commands: 'die',
 	description: 'Kill the bot process',
-  execute(message, arguments, text) {
+  execute(message) {
     if(message.author.id === "889281211875332147") {
-    process.exit();
+      process.exit();
     } else {
-      message.channel.send("Not for you.");
+      message.channel.send("Nevermind, not for you.");
     }
   }
 }

@@ -5,7 +5,7 @@ module.exports = {
 	description: 'Post server info.',
 	execute(message, arguments, text) {
 		const { guild } = message;
-		const { name, region, memberCount, owner } = guild;
+		const { name, memberCount, owner } = guild;
 		const icon = guild.iconURL();
 
 
@@ -13,10 +13,7 @@ module.exports = {
 		const embed = new Discord.MessageEmbed()
 			.setTitle(`Server info for "${name}"`)
 			.setThumbnail(icon)
-			.addFields({
-				name: 'Region',
-				value: region,
-			},
+			.addFields(
 			{
 				name: 'Members',
 				value: memberCount,

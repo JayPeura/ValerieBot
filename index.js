@@ -17,6 +17,21 @@ for(const file of commandFiles) {
     client.commands.set(command.commands, command);
 }
 
+client.on('ready', () => {
+    console.log("Logged in as " + client.user.tag + "!")
+    console.log('--------')
+    console.log('Ready to act!')
+    client.user.setActivity("with your feelings.");
+    client.channels.cache.get('902108740122185788').send("Back online.")
+  .then(msg => {
+    msg.delete({ timeout: 5000 })
+  })
+  .catch();
+})
+
+client.login(mySecret);
+
+
 // command handler
 client.on("message", message => {
   if(!message.content.startsWith(prefix) || message.author.id === "902104659437707314") return;
@@ -33,21 +48,6 @@ client.on("message", message => {
     message.reply(`There was an error: ` + error);
   }
 })
-
-client.on('ready', () => {
-    console.log("Logged in as " + client.user.tag + "!")
-    console.log('--------')
-    console.log('Ready to act!')
-    client.user.setActivity("with your feelings.");
-    client.channels.cache.get('902108740122185788').send("Back online.")
-  .then(msg => {
-    msg.delete({ timeout: 5000 })
-  })
-  .catch();
-})
-
-client.login(mySecret);
-
 
 // ====================== //
 // *=*=* MUSIC  BOT *=*=* //
@@ -117,28 +117,5 @@ distube
         console.error(e)
         message.channel.send("An error encountered: " + e);
     });
-
-
-    //=======================================================//
-    //These eventlisteners are for informing me whoever messages the bot and what is the content of the message. 
-    //The second one tells me if someone mentions my name in the servers the bot is in.
-    //These do not work properly with AWS hosting.
-    //=======================================================//
-
-    // else if (message.channel.type == "dm") {
-    //     const DMme = client.users.cache.get("294491743674433536")
-    //     if (message.author.bot !== client.user.id || DMme) return;
-    //     message.channel.send("Hey there! With any questions you can DM or tag FelineJay#0666. Or you can type **.help** for commands.");
-    //     DMme.send(`${message.author} just tried to DM me. Silly person.\n\n**Content:**\n_${message.content}_`);
-    //     return;
-    // }
-
-    // else if (message.content.toLowerCase().includes("Jay".toLowerCase())) {
-    //     if(message.author.bot) return;
-    //     const DMme = client.users.cache.get("294491743674433536")
-    //     DMme.send(`You were mentioned by **${message.author}** \n\n**${message.guild.name}** \nChannel: **${message.channel.name}**\n\n**Message content:** \n_${message.content}_`);
-    //     return;
-    // }
-
 
 keepAlive()
